@@ -8,3 +8,5 @@ router.route('/register').post(registerUser)
 router.route('/login').post(loginUser)
 router.route('/logout').get(verifyJWT, logoutUser)
 router.route('/profile').get(verifyJWT, userProfile)
+
+export default router

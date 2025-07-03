@@ -1,4 +1,6 @@
-import {User} from "../models/userModel.js";
+import {User} from "../models/user.model.js";
+import { ApiError } from "../utils/ApiError.js";
+import { ApiResponse } from "../utils/ApiResponse.js";
 import {oauth2client} from "../utils/googleConfig.js";
 import axios from "axios";
 import jwt from "jsonwebtoken";
@@ -38,14 +40,14 @@ const googleLogin = async (req, res) => {
       expiresIn: process.env.TOKEN_EXPIRY,
     });
 
-    res.status(200).json({
-      message: "success",
-      token,
-      user,
-    });
+    res.status(200).json(new ApiResponse(
+      200,
+      {user, token},
+      "Google login successfull"
+    ));
   } catch (error) {
     console.error("Google Login Error:", error);
-    res.status(500).json({message: "Internal Server Error"});
+    res.status(500).json(new ApiError(500, "Internal Server error"));
   }
 };
 

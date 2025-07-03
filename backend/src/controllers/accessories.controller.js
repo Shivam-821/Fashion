@@ -1,3 +1,3 @@
-import { OutfitSuggestion } from "../models/accessories.model";
-import { User } from "../models/user.model";
+import { OutfitSuggestion } from "../models/accessories.model.js";
+import { User } from "../models/user.model.js";
 
