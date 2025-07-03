@@ -24,7 +24,7 @@ const topsSuggestionSchema = new Schema({
   tops: [topSchema],
 });
 
-const TopsSuggestion = mongoose.model("TopsSuggestion", topsSuggestionSchema);
+export const TopsSuggestion = mongoose.model("TopsSuggestion", topsSuggestionSchema);
 
 const data = {
   category: "tops",

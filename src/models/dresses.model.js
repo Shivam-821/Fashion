@@ -24,7 +24,7 @@ const dressSuggestionSchema = new Schema({
   dresses: [dressSchema],
 });
 
-const DressSuggestion = mongoose.model(
+export const DressSuggestion = mongoose.model(
   "DressSuggestion",
   dressSuggestionSchema
 );

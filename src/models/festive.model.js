@@ -25,7 +25,7 @@ const festiveSuggestionSchema = new Schema({
   dresses: [festiveDressSchema],
 });
 
-const FestiveSuggestion = mongoose.model(
+export const FestiveSuggestion = mongoose.model(
   "FestiveSuggestion",
   festiveSuggestionSchema
 );

@@ -23,7 +23,7 @@ const sareeSuggestionSchema = new Schema({
   products: [sareeSchema],
 });
 
-const SareeSuggestion = mongoose.model(
+export const SareeSuggestion = mongoose.model(
   "SareeSuggestion",
   sareeSuggestionSchema
 );

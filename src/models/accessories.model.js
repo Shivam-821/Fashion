@@ -16,7 +16,7 @@ const outfitSuggestionSchema = new Schema({
   items: [accessorySchema],
 });
 
-const OutfitSuggestion = mongoose.model(
+export const OutfitSuggestion = mongoose.model(
   "OutfitSuggestion",
   outfitSuggestionSchema
 );
@@ -151,11 +151,11 @@ export const creatingAccessoriesCollection = async () => {
   const exists = await OutfitSuggestion.findOne({category: "accessories"});
   if (!exists) {
     try {
-        await OutfitSuggestion.create(data);
+      await OutfitSuggestion.create(data);
     } catch (error) {
-        console.log("Error creating Dress suggestion: ", error)
+      console.log("Error creating Dress suggestion: ", error);
     }
-  
+
     console.log("Festive Sugesstion added successfully");
   } else {
     return;

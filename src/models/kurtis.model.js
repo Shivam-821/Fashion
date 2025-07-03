@@ -24,7 +24,7 @@ const kurtiSuggestionSchema = new Schema({
   kurtis: [kurtiSchema],
 });
 
-const KurtiSuggestion = mongoose.model(
+export const KurtiSuggestion = mongoose.model(
   "KurtiSuggestion",
   kurtiSuggestionSchema
 );
