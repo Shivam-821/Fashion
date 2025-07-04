@@ -11,11 +11,11 @@ app.use(express.urlencoded({extended: true}))
 app.use(express.static("public"))
 
 
-import festiveRoute from './routes/festivesuggestion.routes.js'
+import unifiedRoute from './routes/unified.routes.js'
 import googleAuthRoute from './routes/googleAuth.route.js'
 import userRoute from './routes/user.routes.js'
 
-app.use('/api/festivals', festiveRoute)
+app.use("/api/suggestions", unifiedRoute);
 app.use('/api/users', userRoute)
 app.use('/api/auth', googleAuthRoute)
 

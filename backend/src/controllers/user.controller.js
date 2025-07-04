@@ -4,6 +4,7 @@ import {ApiResponse} from "../utils/ApiResponse.js";
 import {asyncHandler} from "../utils/asyncHandler.js";
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
+import { deleteFromCloudinary, uploadOnCloudinary } from "../utils/cloudinary.js";
 
 const generateToken = (user) => {
   return jwt.sign(
@@ -128,4 +129,75 @@ const userProfile = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, foundedUser, "User fetched successfully"));
 });
 
-export {registerUser, loginUser, logoutUser, userProfile};
+const editProfile = asyncHandler(async (req, res) => {
+  const {fullname, password, profile} = req.body;
+
+  const user = req.user
+  try {
+    const foundedUser = await User.findById(user._id);
+    if (!foundedUser) {
+      return res.status(400).json(new ApiError(404, "User not found"));
+    }
+    if (fullname) {
+      foundedUser.fullname = fullname;
+    }
+    if (password) {
+      foundedUser.password = password;
+    }
+    if (profile) {
+      foundedUser.profile = {
+        ...foundedUser.profile?.toObject?.(), 
+        ...profile,
+      };
+    }
+    await foundedUser.save();
+
+    return res
+      .status(200)
+      .json(new ApiResponse(200, "User profile updated successfully"));
+  } catch (error) {
+    console.log("error updating the user profile")
+    return res
+      .status(500)
+      .json(new ApiError(500, "Something went wrong while updating user profile"))
+  }
+})
+
+const uploadAvatar = asyncHandler(async (req, res) => {
+  let avatar;
+  const avatarLocalPath = req.file?.path;
+  if(avatarLocalPath){
+    try {
+      avatar = await uploadOnCloudinary(avatarLocalPath);
+    } catch (error) {
+      return res.status(500).json(new ApiError(500, `Somehting went wrong while uploading avatar: ${error}`))
+    }
+  } else {
+    return res.status(404).json(new ApiError(404, "Avatar is required"))
+  }
+
+  try {
+    const user = req.user;
+    const gotUser = await User.findById(user._id)
+    if(!gotUser){
+      return res.status(404).json(new ApiError(404, "User not found"))
+    }
+    gotUser.avatar = avatar?.url
+    await gotUser.save()
+  
+    return res.status(200).json(new ApiResponse(200, gotUser, "Avatar uploaded successfully"))
+  } catch (error) {
+    console.error("error saving avatar url")
+    if (avatar?.public_id) await deleteFromCloudinary(avatar.public_id)
+  }
+})
+
+export {
+  registerUser,
+  loginUser,
+  logoutUser,
+  userProfile,
+  editProfile,
+  uploadAvatar,
+};
+
