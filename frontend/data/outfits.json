@@ -1,0 +1,52 @@
+[
+  {
+    "type": "Topwear",
+    "name": "Powder Blue Ribbed Crop Top",
+    "image": "images/outfits/top1.jpg"
+  },
+  {
+    "type": "Dress",
+    "name": "Lavender Relaxed Wrap Dress",
+    "image": "images/outfits/dress1.jpg"
+  },
+  {
+    "type": "Shirt",
+    "name": "Soft Beige Oversized Shirt",
+    "image": "images/outfits/shirt1.jpg"
+  },
+  {
+    "type": "Topwear",
+    "name": "Ash Gray Round Neck Tee",
+    "image": "images/outfits/top2.jpg"
+  },
+  {
+    "type": "Dress",
+    "name": "Blush Pink Skater Dress",
+    "image": "images/outfits/dress2.jpg"
+  },
+  {
+    "type": "Shirt",
+    "name": "Muted Olive Button Shirt",
+    "image": "images/outfits/shirt2.jpg"
+  },
+  {
+    "type": "Topwear",
+    "name": "Charcoal Crop Hoodie",
+    "image": "images/outfits/top3.jpg"
+  },
+  {
+    "type": "Dress",
+    "name": "Dusty Rose Fit & Flare Dress",
+    "image": "images/outfits/dress3.jpg"
+  },
+  {
+    "type": "Shirt",
+    "name": "Ivory Cotton Shirt with Pockets",
+    "image": "images/outfits/shirt3.jpg"
+  },
+  {
+    "type": "Topwear",
+    "name": "Slate Blue Half Sleeve Tee",
+    "image": "images/outfits/top4.jpg"
+  }
+]
