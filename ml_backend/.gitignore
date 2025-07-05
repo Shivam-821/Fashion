@@ -1,0 +1,55 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environment
+.venv/
+venv/
+ENV/
+env/
+*.env
+
+# VS Code settings (optional, but common)
+.vscode/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment variable files
+.env
+.env.*
+
+# Pytest cache
+.pytest_cache/
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+.cache
+
+# mypy type check cache
+.mypy_cache/
+
+# IDEs
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Jupyter Notebooks checkpoints (if any)
+.ipynb_checkpoints/
+
+# Pydantic settings (optional if you store secrets there)
+settings.py
+
+
