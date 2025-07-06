@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fit Check – StyleSense AI</title>
+
+  <!-- Font and Styles -->
+ <!-- Google Font (Inter) and Main CSS -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/styles.css" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
+
+
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <h1 class="logo">StyleSense AI</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="results.html">Results</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+  </header>
+
+  <!-- Upload Section -->
+  <main class="fitcheck-wrapper fade-in">
+    <h2 class="section-title">Upload or Click a Photo</h2>
+    <p class="section-subtitle">We’ll analyze it and show you AI-powered outfit ideas.</p>
+
+   <form id="fitForm" class="upload-form">
+  <!-- Upload Section -->
+  <label for="photo" class="upload-label">Choose or click an image:</label>
+  <input type="file" id="photo" accept="image/*" capture="environment" required />
+  <img id="preview" class="image-preview" style="display:none;" />
+
+  <!-- Details Section -->
+  <label for="bodyType" class="upload-label">Body Shape:</label>
+  <select id="bodyType" required>
+    <option value="">Select</option>
+    <option value="inverted_triangle">Inverted Triangle</option>
+    <option value="hourglass">Hourglass</option>
+    <option value="pear">Pear</option>
+    <option value="rectangle">Rectangle</option>
+    <option value="apple">Apple</option>
+  </select>
+
+  <label for="skinTone" class="upload-label">Skin Tone:</label>
+  <select id="skinTone" required>
+    <option value="">Select</option>
+    <option value="fair">Fair</option>
+    <option value="wheatish">Wheatish</option>
+    <option value="olive">Olive</option>
+    <option value="dark">Dark</option>
+  </select>
+
+  <label for="occasion" class="upload-label">Occasion:</label>
+  <select id="occasion" required>
+    <option value="">Select</option>
+    <option value="casual">Casual</option>
+    <option value="office">Office</option>
+    <option value="party">Party</option>
+    <option value="ethnic">Ethnic</option>
+    <option value="college">College</option>
+  </select>
+
+  <button type="submit" class="cta-button">Continue</button>
+</form>
+
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 StyleSense AI. All rights reserved.</p>
+  </footer>
+
+  <!-- Script -->
+  <script src="scripts/fitcheck.js"></script>
+</body>
+</html>
